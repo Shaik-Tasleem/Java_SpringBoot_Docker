@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TV Show Details</title>
+</head>
+<body>
+    <h1 th:text="${tvShow.title}">TV Show Title</h1>
+    <p><strong>Release Year:</strong> <span th:text="${tvShow.releaseYear}"></span></p>
+    <p><strong>Genres:</strong> <span th:text="${tvShow.genres}"></span></p>
+    <p><strong>Synopsis:</strong></p>
+    <p th:text="${tvShow.synopsis}"></p>
+    <a th:href="@{/shows/{id}/edit(id=${tvShow.id})}">Edit</a> |
+    <a th:href="@{/shows/{id}/delete(id=${tvShow.id})}" onclick="return confirm('Are you sure you want to delete this show?');">Delete</a>
+    <br><br>
+    <a href="/shows">Back to Collection</a>
+</body>
+</html>

@@ -1,0 +1,36 @@
+services:
+  
+  springboot-app:
+    image: tvshow:latest
+    container_name: springpro
+    depends_on:
+      - mysql
+ 
+    ports:
+      - "8081:8087"
+    networks:
+      - combine_net_monday
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql_container_monday1:3306/revshop3
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery:8761/eureka/
+  
+  mysql:
+    image: mysql:latest
+    container_name: mysql_container_monday1
+    ports:
+      - "3304:3306"
+    networks:
+      - combine_net_monday
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: revshop3
+    volumes:
+      - combine_vol_monday:/var/lib/mysql  
+
+networks:
+  combine_net_monday:
+
+volumes:
+  combine_vol_monday:

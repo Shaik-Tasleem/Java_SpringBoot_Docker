@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <ul>
+        <li th:each="result : ${searchResults}">
+            <p><strong>Title:</strong> <span th:text="${result.show.name}"></span></p>
+            <p><strong>Genres:</strong> <span th:text="${result.show.genres}"></span></p>
+            <p><strong>Summary:</strong> <span th:utext="${result.show.summary}"></span></p>
+            <form action="/shows/add" method="post">
+                <input type="hidden" name="title" th:value="${result.show.name}">
+                <input type="hidden" name="releaseYear" th:value="${result.show.premiered}">
+                <input type="hidden" name="genres" th:value="${result.show.genres}">
+                <input type="hidden" name="synopsis" th:value="${result.show.summary}">
+                <button type="submit">Add to Collection</button>
+            </form>
+            <hr>
+        </li>
+    </ul>
+    <a href="/shows">Back to Collection</a>
+</body>
+</html>
