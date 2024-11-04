@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add TV Show</title>
+</head>
+<body>
+    <h1>Add a New TV Show</h1> 
+    <form action="#" th:action="@{/shows/add}" th:object="${tvShow}" method="post">
+        <label for="title">TV Show Title:</label>
+        <input type="text" id="title" th:field="*{title}" required>
+        <br><br>
+        
+        <label for="releaseYear">Release Year:</label>
+        <input type="text" id="releaseYear" th:field="*{releaseYear}" required>
+        <br><br>
+        
+        <label for="genres">Genres:</label>
+        <input type="text" id="genres" th:field="*{genres}" required>
+        <br><br>
+        
+        <label for="synopsis">Synopsis:</label>
+        <textarea id="synopsis" th:field="*{synopsis}" rows="4" cols="50" required></textarea>
+        <br><br>
+        
+        <button type="submit">Save TV Show</button>
+        <a href="/shows">Cancel</a>
+    </form>
+</body>
+</html>

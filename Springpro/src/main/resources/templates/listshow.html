@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TV Show Collection</title>
+</head>
+<body>
+    <h1>Your TV Show Collection</h1>
+    <a href="/shows/add">Add New Show</a>
+    <form action="/shows/search" method="post">
+        <input type="text" name="query" placeholder="Search TV Show">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        <li th:each="show : ${shows}">
+            <a th:href="@{/shows/{id}(id=${show.id})}" th:text="${show.title}">Show Title</a>
+            <span th:text="' - ' + ${show.releaseYear}"></span>
+            <a th:href="@{/shows/{id}/edit(id=${show.id})}">Edit</a>
+            <a th:href="@{/shows/{id}/delete(id=${show.id})}" onclick="return confirm('Are you sure you want to delete this show?');">Delete</a>
+        </li>
+    </ul>
+</body>
+</html>

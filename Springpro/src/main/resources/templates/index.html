@@ -1,0 +1,18 @@
+  <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TV Show Collection</title>
+</head>
+<body>
+<h1>TV Show Collection</h1>
+<a href="/shows/add">Add a New Show</a>
+<ul>
+    <li th:each="show : ${shows}">
+        <a th:href="@{/shows/{id}(id=${show.id})}" th:text="${show.title}"></a>
+        <a th:href="@{/shows/{id}/edit(id=${show.id})}">Edit</a>
+        <a th:href="@{/shows/{id}/delete(id=${show.id})}">Delete</a>
+    </li>
+</ul>
+</body>
+</html>
+ 

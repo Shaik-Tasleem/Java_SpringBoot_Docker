@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  app:
+  
+    image: shaiktasleem2/spring-app:latest  # Name to use when pushing to Docker Hub
+    ports:
+      - "8081:8087"  
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/shows
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=rootpass
+    depends_on:
+      - db  # Ensures the database starts before the app
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: shows
+    ports:
+      - "3307:3306"  # Exposes MySQL on localhost:3306
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persists data even if container restarts
+
+volumes:
+  mysql_data:  # Defines a named volume for MySQL data persistence

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Show Details</title>
+</head>
+<body>
+<h1>Show Details</h1>
+<div>
+    <h2 th:text="${show.title}"></h2>
+    <p>Release Year: <span th:text="${show.releaseYear}"></span></p>
+    <p>Genres: <span th:text="${show.genres}"></span></p>
+    <p>Synopsis: <span th:text="${show.synopsis}"></span></p>
+</div>
+<form action="/shows/confirm" method="post">
+    <input type="hidden" name="title" th:value="${show.title}"/>
+    <input type="hidden" name="releaseYear" th:value="${show.releaseYear}"/>
+    <input type="hidden" name="genres" th:value="${show.genres}"/>
+    <input type="hidden" name="synopsis" th:value="${show.synopsis}"/>
+    <button type="submit">Confirm Add</button>
+</form>
+<a href="/shows">Cancel</a>
+</body>
+</html>

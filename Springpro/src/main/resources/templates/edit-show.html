@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Show</title>
+</head>
+<body>
+<h1>Edit TV Show</h1>
+<form action="@{/shows/{id}/edit(id=${show.id})}" method="post">
+    <input type="text" name="title" th:value="${show.title}" required/>
+    <input type="number" name="releaseYear" th:value="${show.releaseYear}" required/>
+    <input type="text" name="genres" th:value="${show.genres}" required/>
+    <textarea name="synopsis" required th:text="${show.synopsis}"></textarea>
+    <button type="submit">Update Show</button>
+</form>
+<a href="/shows">Cancel</a>
+</body>
+</html>
