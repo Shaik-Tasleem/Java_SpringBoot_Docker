@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version="5.0">
+  <servlet>
+    <description></description>
+    <display-name>university</display-name>
+    <servlet-name>university</servlet-name>
+    <servlet-class>controller.university</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>university</servlet-name>
+    <url-pattern>/searchUniversity</url-pattern>
+  </servlet-mapping>
+  <display-name>Universities</display-name>
+  <welcome-file-list>
+    <welcome-file>welcome.jsp</welcome-file>
+  
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>SavedUniversitiesServlet</display-name>
+    <servlet-name>SavedUniversitiesServlet</servlet-name>
+    <servlet-class>controller.SavedUniversitiesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SavedUniversitiesServlet</servlet-name>
+    <url-pattern>/savedUniversities</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReportsServlet</display-name>
+    <servlet-name>ReportsServlet</servlet-name>
+    <servlet-class>controller.ReportsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReportsServlet</servlet-name>
+    <url-pattern>/reports</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddUniversityServlet</display-name>
+    <servlet-name>AddUniversityServlet</servlet-name>
+    <servlet-class>controller.AddUniversityServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddUniversityServlet</servlet-name>
+    <url-pattern>/addUniversity</url-pattern>
+  </servlet-mapping>
+</web-app>
